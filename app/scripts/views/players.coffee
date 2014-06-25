@@ -2,11 +2,12 @@ define [
   'jquery'
   'underscore'
   'backbone'
-  'hbs!../templates/players'
+  'templates'
   'jribbble'
-], ($, _, Backbone, hbs, ShotView, PlayerView, jribbble) ->
+], ($, _, Backbone, JST, ShotView, PlayerView, jribbble) ->
   class ShotsView extends Backbone.View
 
+    template: JST['app/scripts/templates/players.hbs']
     el: '.player-shots'
 
     initialize: ->
@@ -15,4 +16,4 @@ define [
     render: (collection) =>
       console.log @collection
       console.log collection
-      @$el.append hbs(shot: @collection.toJSON())
+      @$el.append @template(shot: @collection.toJSON())

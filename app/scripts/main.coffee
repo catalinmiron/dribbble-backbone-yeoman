@@ -16,7 +16,6 @@ require.config
     underscore: '../bower_components/underscore/underscore'
     bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap'
     handlebars: '../bower_components/handlebars/handlebars'
-    hbs: '../bower_components/hbs/hbs'
     jribbble: 'libs/jribbble'
 
 require [

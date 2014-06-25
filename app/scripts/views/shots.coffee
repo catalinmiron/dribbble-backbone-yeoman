@@ -2,14 +2,16 @@ define [
   'jquery'
   'underscore'
   'backbone'
-  'hbs!../templates/shots'
   'views/shot'
   'views/player'
   'views/players'
   'collections/player'
   'jribbble'
-], ($, _, Backbone, hbs, ShotView, PlayerView, PlayersView, PlayerCollection, jribbble) ->
+  'templates'
+], ($, _, Backbone, ShotView, PlayerView, PlayersView, PlayerCollection, jribbble, JST) ->
   class ShotsView extends Backbone.View
+
+    template: JST['app/scripts/templates/shots.hbs']
 
     el: '.shots'
 
@@ -30,7 +32,7 @@ define [
       @$el.empty()
       @shots = _.clone(collection)
       console.log @shots
-      @$el.html hbs(model: @shots)
+      @$el.html @template(model: @shots)
 
     showShot: (model) =>
       @$el.empty()

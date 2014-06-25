@@ -2,10 +2,12 @@ define [
   'jquery'
   'underscore'
   'backbone'
-  'hbs!../templates/player'
+  'templates'
   'views/shots'
-], ($, _, Backbone, hbs, ShotsView) ->
+], ($, _, Backbone, JST, ShotsView) ->
   class PlayerView extends Backbone.View
+
+    template: JST['app/scripts/templates/player.hbs']
 
     el: '.player'
 
@@ -17,7 +19,7 @@ define [
         @render()
 
     render: () ->
-        @$el.html hbs(@model)
+        @$el.html @template(@model)
 
     goBack: (e) ->
         e.preventDefault()

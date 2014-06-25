@@ -2,9 +2,12 @@ define [
   'jquery'
   'underscore'
   'backbone'
-  'hbs!../templates/shot'
-], ($, _, Backbone, hbs) ->
+  'handlebars'
+  'templates'
+], ($, _, Backbone, Handlebars, JST) ->
   class ShotView extends Backbone.View
+
+    template: JST['app/scripts/templates/shot.hbs']
 
     el: '.shot'
 
@@ -20,5 +23,5 @@ define [
         @render()
 
     render: () ->
-        @$el.html hbs(@model)
+        @$el.html @template(@model)
 
